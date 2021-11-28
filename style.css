@@ -1,23 +1,26 @@
 :root{
     /* COLORS */
-
-    /* TEXT */
-    --very-dark-desaturated-blue: hsl(238, 29%, 16%);
-    --soft-red: hsl(14, 88%, 65%);
-    --very-dark-grayish-blue: hsl(237, 12%, 33%);
-    --dark-grayish-blue: hsl(240, 6%, 50%);
-    /* BACKGROUND GRADIENT */
-    --soft-violet: hsl(273, 75%, 66%);
-    --soft-blue: hsl(240, 73%, 65%);
-    /* DIVIDERS */
-    --light-grayish-blue: hsl(240, 5%, 91%);
+        /* TEXT */
+        --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+        --soft-red: hsl(14, 88%, 65%);
+        --very-dark-grayish-blue: hsl(237, 12%, 33%);
+        --dark-grayish-blue: hsl(240, 6%, 50%);
+        /* BACKGROUND GRADIENT */
+        --soft-violet: hsl(273, 75%, 66%);
+        --soft-blue: hsl(240, 73%, 65%);
+        /* DIVIDERS */
+        --light-grayish-blue: hsl(240, 5%, 91%);
 
     /* TYPOGRAPHY */
+        /* BODY COPY */
+        --font-size: 12px;
+        /* FONT */
+        --font-family: 'Kumbh Sans', sans-serif;
+}
 
-    /* BODY COPY */
-    --font-size: 12px;
-    /* FONT */
-    --font-family: 'Kumbh Sans', sans-serif;
+*{
+    margin: 0;
+    padding: 0;
 }
 
 .sr-only {
@@ -32,17 +35,14 @@
     border: 0;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-
+body {
     font-family: var(--font-family);
     font-size: var(--font-size);
 
     background: linear-gradient(var(--soft-violet), var(--soft-blue)) ;
 }
 
-.l-frame{
+.l-frame {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,15 +50,173 @@ body{
     min-height: 100vh;
 }
 
-.l-image-area{
-    background: white;
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 20px 40px -20px var(--very-dark-desaturated-blue);
     border-radius: 20px;
 }
 
-.l-faq-area{
-    background: white;
-    border-radius: 20px;
+.l-faq-frame, .l-image-frame {
+    background-color: white;
+    height: 510px;
+    width: 460px;
 }
 
-.attribution { font-size: 11px; text-align: center; }
+.l-image-frame {
+    border-radius: 20px 0 0 20px;
+    background-image: url('images/illustration-woman-online-desktop.svg'), url('images/bg-pattern-desktop.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: -80px 70px, -575px -295px;
+}
+
+.l-image-frame img:first-child {
+    margin: 205px 0 0 -90px;
+}
+
+.l-image-frame img:nth-child(2) {
+    display: none;
+}
+
+.l-image-mobile {
+    display: none;
+}
+
+.l-faq-frame {
+    padding: 3.5em 8em 1em 1.2em;
+    box-sizing: border-box;
+    border-radius: 0 20px 20px 0;
+}
+
+.title {
+    padding: .7em 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.l-question-area {
+    padding: 1.4em 0;
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.question-text {
+    color: var(--dark-grayish-blue);
+    font-size: 14px;
+}
+
+.question-text:hover {
+    color: var(--soft-red);
+    cursor: pointer;
+}
+
+.ico-arrow {
+    float: right;
+    padding: .5em 1em .25em;
+}
+
+.answer-text {
+    display: none;
+
+    padding-top: .7em;
+
+    color: var(--dark-grayish-blue);
+    line-height: 1.25rem;
+}
+
+
+input {
+    visibility: hidden;
+}
+
+#question1:checked + span {
+    display: block;
+}
+
+#question2:checked + span {
+    display: block;
+}
+#question3:checked + span {
+    display: block;
+}
+
+#question4:checked + span {
+    display: block;
+}
+#question5:checked + span {
+    display: block;
+}
+
+.attribution { color: white; font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media (max-width: 1000px) {
+
+    .wrapper {
+        flex-direction: column;
+        margin-top: 90px;
+    }
+
+    .l-image-frame {
+        background-image: url('images/bg-pattern-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: 115px -130px;
+        background-size: 50%;
+
+        height: 100px;
+        
+        border-radius: 20px 20px 0 0;
+    }
+
+    .l-image-frame img:nth-child(1) {
+        display: none;
+    }
+
+    .l-image-frame img:nth-child(2) {
+        display: block;
+        width: 50%;
+        margin: -100px 115px;
+    }
+
+    .l-faq-frame {
+        height: 380px;
+
+        padding: 1em 2em;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 520px){
+
+    .l-image-frame {
+        width: 328px;
+        height: 122.4px;
+        background-position: 45px -120px;
+        background-size: 70%;
+    }
+
+    .l-image-frame img:nth-child(2) {
+        width: 70%;
+        margin: -100px 45px;
+    }
+
+    .l-faq-frame {
+        width: 328px;
+    }
+
+    .title {
+        padding: 0 0 .5em 0;
+    }
+
+    .ico-arrow {
+        padding: .5em 0 0 0;
+    }
+
+}

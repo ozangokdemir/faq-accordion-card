@@ -1,0 +1,7 @@
+which is better use ?
+1 - Set a global width and proportionate inside frames
+2 - Set each frame width separely
+
+checkbox hack limitations
+
+make div bigger when span is shown ?
