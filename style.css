@@ -125,27 +125,22 @@ body {
     line-height: 1.25rem;
 }
 
+/* CHECKBOX HACK ON RADIO BUTTONS */
+[type="radio"]:checked ~ span {
+    display: block;
+}
+
+[type="radio"]:checked ~ label {
+    font-weight: 700;
+}
+
+[type="radio"]:checked ~ label img {
+    transform: rotateX(180deg);
+}
 
 input {
     visibility: hidden;
-}
-
-#question1:checked + span {
-    display: block;
-}
-
-#question2:checked + span {
-    display: block;
-}
-#question3:checked + span {
-    display: block;
-}
-
-#question4:checked + span {
-    display: block;
-}
-#question5:checked + span {
-    display: block;
+    width: 0;
 }
 
 .attribution { color: white; font-size: 11px; text-align: center; }
@@ -181,13 +176,14 @@ input {
     }
 
     .l-faq-frame {
-        height: 380px;
+        height: 400px;
 
         padding: 1em 2em;
         border-radius: 0 0 20px 20px;
     }
 
     .title {
+        padding: 0 0 .5em 0;
         text-align: center;
         font-size: 32px;
     }
@@ -209,10 +205,6 @@ input {
 
     .l-faq-frame {
         width: 328px;
-    }
-
-    .title {
-        padding: 0 0 .5em 0;
     }
 
     .ico-arrow {
